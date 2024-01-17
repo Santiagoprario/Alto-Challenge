@@ -13,6 +13,8 @@ Esta aplicación ha sido desarrollada con el siguiente Stack:
 
 Se optó por diseñar las interfaces con CSS puro para demostrar habilidades en esta tecnología. Aunque se prefiere el uso de la librería `react-hook-form` para manejar formularios, en este caso se utilizaron componentes controlados debido al tamaño reducido de la aplicación y para evitar la instalación de nuevas dependencias.
 
+El proyecto contiene rutas privadas y rutas publicas, las cuales validaran si la sesion esta iniciada para poder acceder. Los datos de session se guardan en el localStorage.
+
 React no incluye una API interna similar a `in-memory-web-api` de Angular, por lo que se instaló la librería `json-server` y `json-auth-server` para reemplazarla.
 
 La API levanta los siguientes endpoints:

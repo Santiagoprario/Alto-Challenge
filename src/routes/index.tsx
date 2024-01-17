@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Login, Home, Form, Search } from '../../pages';
+import { Login, Home, Form, Search } from '../pages';
 import ProtectedRoutes from './ProtectedRoutes';
 import PublicRoutes from './PublicRoutes';
 

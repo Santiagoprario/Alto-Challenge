@@ -16,7 +16,7 @@ const Login: React.FC = () => {
   });
 
   const isValidPassword = (password: string) => {
-    return password.trim() !== '';
+    return password.length > 4;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,7 +44,15 @@ const Login: React.FC = () => {
       toast(`Bienvenido!`)
       navigate('/home');
     })
-    .catch((error) => toast(error.response.data));
+    .catch((error) => {
+      if (error.response.data === 'Cannot find user') {
+        return toast('No se ha encontrado el email ingresado')
+      }
+      if (error.response.data === 'Incorrect password') {
+        return toast('Contraseña incorrecta. Por favor reintente.')
+      }
+      return toast(error.response.data)
+    });
 
     return response;
   };
