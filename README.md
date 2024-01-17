@@ -56,7 +56,7 @@ Si deseas iniciar sesión con otro usuario, realiza la siguiente petición con P
 
 - **URL:** [http://localhost:3001/users](http://localhost:3001/users)
 - **Método:** POST
-- **Cuerpo:** { "email": "tu_email", "password": "tu_contraseña" }
+- **Body:** { "email": "tu_email", "password": "tu_contraseña" }
 
 ## Objetivo
 
