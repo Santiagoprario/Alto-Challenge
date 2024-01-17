@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "email": "admin@admin.com",
+      "password": "$2a$10$n5lDpTYdHW3H4X5iU2ysjO7kWHeVXAx/4KY5zF/FoyTT.XQQ0IsMO",
+      "id": 1
+    }
+  ],
+  "associates": [
+    {
+      "name": "santiago",
+      "email": "a@a.com",
+      "phone": "12312313",
+      "age": "21",
+      "isAssociated": true,
+      "id": 1
+    },
+    {
+      "name": "Santiago Prario",
+      "email": "santi@gmail.com",
+      "phone": "2234444444",
+      "age": "33",
+      "isAssociated": true,
+      "id": 2
+    }
+  ]
+}
