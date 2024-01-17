@@ -2,7 +2,12 @@ import styled from "styled-components";
 
 const ButtonsContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  margin-top: 2%;
+  justify-content: center;
+
+  & > *:not(:last-child) {
+    margin-right: 40px;
+  }
 `;
 
 const OutletContainer = styled.div`

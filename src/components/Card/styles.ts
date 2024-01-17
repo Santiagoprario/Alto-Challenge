@@ -9,7 +9,7 @@ const Card = styled.div`
   display: flex;
   width: 30%;
   max-width: 500px;
-  margin-top: 5%;
+  margin-top: 2%;
   margin-bottom: 5%;
   flex-direction: column;
   justify-content: center;

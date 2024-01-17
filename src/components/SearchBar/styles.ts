@@ -19,4 +19,11 @@ const SearchInput = styled.input`
   }
 `;
 
-export default { SearchBarContainer, SearchInput };
+const ButtonsContainer = styled.div`
+  display: flex;
+  min-width: 200px;
+  justify-content: space-between;
+  margin-left: 30px;
+`;
+
+export default { ButtonsContainer, SearchBarContainer, SearchInput };

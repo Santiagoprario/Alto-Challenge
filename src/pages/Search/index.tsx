@@ -6,13 +6,16 @@ import { getLabelAssociate } from '../../utils/labels';
 import { API_URL } from '../../constants';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const Associates: FunctionComponent = () => {
   const [ id, setId ] = useState('');
   const [ associate, setAssociate ] = useState<IAssociate>({} as IAssociate);
 
+  const navigate = useNavigate()
+
   const handleSearch = async () => {
-    console.log(id)
+    if (isNaN(Number(id))) return toast('Por favor ingrese un número de Id válido')
     const response = await axios.get(
       `${API_URL}/associates/${id}`,
     )
@@ -29,7 +32,7 @@ const Associates: FunctionComponent = () => {
   return (
     <div style={{height: '650px'}}>
       <Styled.SearchBarContainer>
-        <SearchBar onSearch={handleSearch} onChange={handleChange} value={id} disabled={!id} placeholder='Ingrese un Id para búscar' />
+        <SearchBar onGoBack={() => navigate('/home')} onSearch={handleSearch} onChange={handleChange} value={id} disabled={!id} placeholder='Ingrese un Id para búscar' />
       </Styled.SearchBarContainer>
       {!!associate.name && 
         <Card title={`Detalle del Asociado Nro. ${associate.id}`}>

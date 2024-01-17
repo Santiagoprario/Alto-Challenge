@@ -6,18 +6,15 @@ import { API_URL } from '../../constants';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import logo from './../../assets/latam-logo.png';
+import { isValidateEmail } from '../../utils/validation';
 
 const Login: React.FC = () => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    email: '', // required
-    password: '' // required
+    email: '', 
+    password: ''
   });
 
-  const isValidEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
   const isValidPassword = (password: string) => {
     return password.trim() !== '';
   };
@@ -27,7 +24,7 @@ const Login: React.FC = () => {
   };
 
   const onSubmit = async () => {
-    if (!isValidEmail(formData.email)) {
+    if (!isValidateEmail(formData.email)) {
       toast('Email no válido');
       return;
     }
@@ -43,7 +40,8 @@ const Login: React.FC = () => {
     .then((response) => {
       const { accessToken, userProfile } = response.data;
       localStorage.setItem('accessToken', JSON.stringify(accessToken))
-      localStorage.setItem('userProfile', JSON.stringify(userProfile))
+      localStorage.setItem('userProfile', JSON.stringify(userProfile))      
+      toast(`Bienvenido!`)
       navigate('/home');
     })
     .catch((error) => toast(error.response.data));
@@ -59,7 +57,9 @@ const Login: React.FC = () => {
         <Styled.Title>Inicio de Sesión</Styled.Title>
         <Input type='text' name='email' placeholder='Email' value={formData.email} onChange={(e) => handleChange(e)} />
         <Input type="password" name='password' placeholder="Contraseña" value={formData.password} onChange={(e) => handleChange(e)} />
-        <Button disabled={!formData.email || ! formData.password}  marginTop='30px' onClick={onSubmit}>Ingresar</Button>
+        <Styled.ButtonsContainer>
+          <Button disabled={!formData.email || ! formData.password} onClick={onSubmit}>Ingresar</Button>
+        </Styled.ButtonsContainer>
       </Styled.Card>
     </Styled.Container>
   );

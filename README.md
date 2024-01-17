@@ -1,49 +1,97 @@
-ALto Challenge
+# Alto Challenge
 
-Descripción
-Se pide crear aplicativo básico que contemple un login, escritura y lectura de datos. Esto
-último utilizando una base de datos en memoria. A continuación se describen los distintos
-ítems de este challenge:
+## Comentarios Generales
 
-Login
-● Se debe ingresar al aplicativo mediante un login el que está conectado a una base
-de datos en memoria.
-● Debe solicitar usuario y contraseña.
+Esta aplicación ha sido desarrollada con el siguiente Stack:
+- TypeScript
+- React v18
+- React Router DOM v6
+- Styled-components
+- Axios
+- Vite
+- react-toastify
 
-Home
-● Debe mostrar las opciones de Ingresar datos y Buscar datos, cada una que lleve a
-su respectivo asunto.
+Se optó por diseñar las interfaces con CSS puro para demostrar habilidades en esta tecnología. Aunque se prefiere el uso de la librería `react-hook-form` para manejar formularios, en este caso se utilizaron componentes controlados debido al tamaño reducido de la aplicación y para evitar la instalación de nuevas dependencias.
 
-Ingresar Datos
-● Debe presentar un formulario en el cual se ocupen componentes como Radio,
-checkbox, textinput, etc.
-● El formulario debe ser reactivo (reactive-forms), por cada input el modelo debe ser
-actualizado
-● Incorporar validaciones: E-mail, teléfono, edad (mayor a 18 años)
-● Al guardar los datos se despliega diálogo (snack bar, etc) de "Esta todo Ok", y se
-redirige al home.
+React no incluye una API interna similar a `in-memory-web-api` de Angular, por lo que se instaló la librería `json-server` y `json-auth-server` para reemplazarla.
 
-Buscar Datos
-● La vista debe presentar un input de búsqueda por ID.
-● La búsqueda se efectúa sobre la DB en memoria. (in-memory-web-api)
-● Se deben presentar los datos de la forma que se estime conveniente.
-Entregables
-● Código fuente del aplicativo web
+La API levanta los siguientes endpoints:
 
-Comentarios Generales
+- GET  -> [http://localhost:3001/users](http://localhost:3001/users)
+- POST -> [http://localhost:3001/users](http://localhost:3001/users)
+- POST -> [http://localhost:3001/login](http://localhost:3001/login)
+- GET  -> [http://localhost:3001/associates](http://localhost:3001/associates)
+- POST -> [http://localhost:3001/associates](http://localhost:3001/associates)
 
-Esta app ha sido Desarrollada con el siguiente Stack:
-- react v18
-- react-router-dom v6
+## Primeros Pasos
 
-Primeros Pasos
+Es necesario tener Node v19 o superior para ejecutar la aplicación.
 
-Instalar la app con el comando 
+Instala la aplicación con el siguiente comando:
 
+```bash
 npm install
+```
 
-- npm run server
-- npm run dev
+Ejecutar json-server:
+
+```bash
+npm run server
+```
+
+Ejecutar Aplicación:
+
+```bash
+npm run dev
+```
+
+## Usuario por Defecto
+
+El usuario por defecto para iniciar sesión es:
+
+- **Email:** admin@admin.com
+- **Contraseña:** 123456
+
+Si deseas iniciar sesión con otro usuario, realiza la siguiente petición con Postman:
+
+- **URL:** [http://localhost:3001/users](http://localhost:3001/users)
+- **Método:** POST
+- **Cuerpo:** { "email": "tu_email", "password": "tu_contraseña" }
+
+## Objetivo
+
+Se pide crear una aplicación básica que incluya un login, escritura y lectura de datos. Esto último utilizando una base de datos en memoria. A continuación, se describen los distintos ítems de este challenge:
+
+### Login
+
+- Se debe ingresar al aplicativo mediante un login que está conectado a una base de datos en memoria.
+- Debe solicitar usuario y contraseña.
+
+### Home
+
+- Debe mostrar las opciones de "Ingresar datos" y "Buscar datos", cada una que lleve a su respectivo asunto.
+
+### Ingresar Datos
+
+- Debe presentar un formulario en el cual se utilicen componentes como radio, checkbox, textinput, etc.
+- El formulario debe ser reactivo (reactive-forms), por cada input el modelo debe ser actualizado.
+- Incorporar validaciones: E-mail, teléfono, edad (mayor a 18 años).
+- Al guardar los datos, se despliega un diálogo (snack bar, etc.) de "¡Está todo Ok!" y se redirige al home.
+
+### Buscar Datos
+
+- La vista debe presentar un input de búsqueda por ID.
+- La búsqueda se efectúa sobre la DB en memoria (in-memory-web-api).
+- Se deben presentar los datos de la forma que se estime conveniente.
+
+## Entregables
+
+- Código fuente del aplicativo web.
 
 
-Se eligio usar placeholder en el login y label en el formulario para mostrar ambas alternativas.
+
+
+
+---
+
+Santiago Prario - Challenge Latam

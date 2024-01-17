@@ -5,6 +5,10 @@ const Container = styled.div`
   justify-content: center;
 `;
 
+const ButtonsContainer = styled.div`
+  margin-top: 30px;
+`;
+
 const Card = styled.div`
   display: flex;
   width: 30%;
@@ -31,4 +35,4 @@ const Title = styled.p`
   color: #241178;
 `;
 
-export default { Card, Container, Title };
+export default { ButtonsContainer, Card, Container, Title };

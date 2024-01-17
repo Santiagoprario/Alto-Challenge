@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Styled from './styles';
-import { validateAge, validateEmail } from '../../utils/validation';
+import { isValidateAge, isValidateEmail } from '../../utils/validation';
 import { Button, Card, Checkbox, Input } from '../../components';
 import { toast } from 'react-toastify';
 import { API_URL } from '../../constants';
 import axios from 'axios';
-
 
 const Form = () => {
   const navigate = useNavigate();
@@ -36,14 +35,13 @@ const Form = () => {
     e.preventDefault();
     const newErrors = {
       name: formData.name.trim() === '' ? 'Este campo es requerido' : '',
-      email: !validateEmail(formData.email) ? 'Dirección de correo electrónico inválida' : '',
+      email: !isValidateEmail(formData.email) ? 'Dirección de correo electrónico inválida' : '',
       phone: !formData.phone ? 'Ingrese un Número de Télefono' : '',
-      age: !validateAge(formData.age) ? 'Debes ser mayor de 18 años' : '',
+      age: !isValidateAge(formData.age) ? 'Debes ser mayor de 18 años' : '',
     };
     setFormErrors(newErrors);
 
     if (!Object.values(newErrors).some((error) => error !== '')) {
-      console.log('Datos del formulario:', formData);
       const submitForm = await axios.post(
         `${API_URL}/associates`,
         formData
@@ -60,10 +58,9 @@ const Form = () => {
   };
 
   return (
-    <Card>
+    <Card title='Ingrese los datos'>
       <Styled.FormContainer>
         <form onSubmit={handleSubmit}>
-          <h2>Ingrese los datos</h2>
           <Input
             type="text"
             name="name"
@@ -72,7 +69,6 @@ const Form = () => {
             onChange={handleChange}
             errors={formErrors.name}
           />
-
           <Input
             type="email"
             name="email"
@@ -81,7 +77,6 @@ const Form = () => {
             onChange={handleChange}
             errors={formErrors.email}
           />
-
           <Input
             type="tel"
             name="phone"
