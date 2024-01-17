@@ -8,7 +8,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-const Associates: FunctionComponent = () => {
+const Search: FunctionComponent = () => {
   const [ id, setId ] = useState('');
   const [ associate, setAssociate ] = useState<IAssociate>({} as IAssociate);
 
@@ -54,4 +54,4 @@ const Associates: FunctionComponent = () => {
   );
 };
 
-export default Associates;
+export default Search;

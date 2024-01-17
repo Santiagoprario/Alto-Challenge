@@ -9,7 +9,7 @@ import logo from './../../assets/latam-logo.png';
 import { isValidateEmail } from '../../utils/validation';
 
 const Login: React.FC = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '', 
     password: ''

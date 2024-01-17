@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { API_URL } from '../../constants';
 import axios from 'axios';
 
-const Form = () => {
+const Form: React.FunctionComponent = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
